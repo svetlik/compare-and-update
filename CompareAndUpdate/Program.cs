@@ -7,8 +7,22 @@ namespace CompareAndUpdate
 {
     class Program
     {
+        
+        /* TODO:
+           
+         * Directory-related methods:
+            CheckOutFiles() - not to do
+            CheckForNewFiles() - compare old and new folder and extract new file names
+            CopyNewFiles() - copy new files to new folder
+            
+         * File-related methods:
+            ReadFile() - read file (output an IEnumerable)
+            CompareFiles() - compare collections and output new content
+                - 1st pass: compare DOM tree for new elements and write to JP file
+                - 2nd pass: compare line-by-line for updated content to new/existing elements and write to JP file
+         */
 
-        // Class to hold the files location at
+        // Class to hold the files location at.
         public class FilePaths
         {
             public string Old { get; set; }
@@ -34,7 +48,6 @@ namespace CompareAndUpdate
         }
 
         //  Method to find and get new files in a directory
-
         static List<object> CheckForNewFiles()
         {
             List<object> newFiles = new List<object>();
@@ -43,13 +56,10 @@ namespace CompareAndUpdate
         }
 
         // Method to copy new files to new directory
-
-        static void CopyFiles()
+        static void CopyNewFiles()
         {
             throw new NotImplementedException();
         }
-
-
 
         //  Method to read the file to a list to prepare it for comparison
         static List<string> ReadFile(string filePath, string fileName)
@@ -68,11 +78,5 @@ namespace CompareAndUpdate
             FilePaths userInput = new FilePaths();
             FilePaths.ChooseLocations(userInput);
         }
-
-        
-
-        
-
-        
     }
 }
